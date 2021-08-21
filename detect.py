@@ -114,12 +114,12 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
             xsz = img.shape[2]
             ysz = img.shape[3]
             mulpicplus = int(mulpicplus)
-            x_smalloccur = int(xsz / 3 * 1.2)
-            y_smalloccur = int(ysz / 3 * 1.2)
+            x_smalloccur = int(xsz / mulpicplus * 1.2)
+            y_smalloccur = int(ysz / mulpicplus * 1.2)
             for i in range(mulpicplus):
-                x_startpoint = int(i * (xsz / 3))
+                x_startpoint = int(i * (xsz / mulpicplus))
                 for j in range(mulpicplus):
-                    y_startpoint = int(j * (ysz / 3))
+                    y_startpoint = int(j * (ysz / mulpicplus))
                     x_real = min(x_startpoint + x_smalloccur, xsz)
                     y_real = min(y_startpoint + y_smalloccur, ysz)
                     if (x_real - x_startpoint) % 64 != 0:
